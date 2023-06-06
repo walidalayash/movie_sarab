@@ -1,41 +1,60 @@
 
 
 import 'package:flutter/material.dart';
-
-import 'home.dart';
+import 'package:movie/ui/root.dart';
 
 
 class Login extends StatelessWidget {
    Login({super.key});
   final userName= TextEditingController();
   final password =TextEditingController();
-
+Future<void> _showMyDialog(context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'warning}',
+            style: TextStyle(),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(
+                  'warning',
+                  style: TextStyle(),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(
+                'ok',
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
   void check(String username,String password,context){
     if(username=="walid" && password == "12345678"){
  Navigator.push(context, 
-        MaterialPageRoute(builder: ((context) => const Home())));
+        MaterialPageRoute(builder: ((context) => const Root())));
     }else{
-       showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => 
-       SizedBox(
-        width: 100,
-        height: 100,
-         child: Scaffold(
-           body: Center(
-                child:  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                     const  Text("Invalid",style: TextStyle(fontSize: 100),),
-                       TextButton(onPressed:()=>Navigator.pop(context) , child:const Text("OK") )
-                    ],
-                  ),
-                ),
+      _showMyDialog(context);
             
           
-         ),
-       ));
+         
+      
 
     }
 
