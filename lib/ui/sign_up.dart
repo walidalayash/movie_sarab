@@ -3,11 +3,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/ui/root.dart';
-import 'package:movie/ui/sign_up.dart';
 
 
-class Login extends StatelessWidget {
-   Login({super.key});
+class SignUp extends StatelessWidget {
+   SignUp({super.key});
   final userName= TextEditingController();
   final password =TextEditingController();
 Future<void> _showMyDialog(context) async {
@@ -47,26 +46,9 @@ Future<void> _showMyDialog(context) async {
       },
     );
   }
-  void check(String email,String password,context) async{
-    try{
- await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-
- Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-            builder: (context) =>const Root(
-            )),
-        (Route<dynamic> route) => false,
-      );
-    }catch (e){
-      _showMyDialog(context);
-            
-          
-         
-      
-
-    }
-
+  void check(String email,String password,context){
+    FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+   
   }
 
   @override
@@ -120,13 +102,6 @@ Future<void> _showMyDialog(context) async {
        check(userName.text,password.text,context),
          child: const Text("Login",style: TextStyle(fontSize: 20),)),
      ),
-     TextButton(onPressed: ()=> Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignUp(
-            )),
-        (Route<dynamic> route) => false,
-      ), child: Text("Sign Up")),
          ],
        ),
      )

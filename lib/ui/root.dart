@@ -30,13 +30,12 @@ class _RootState extends State<Root> {
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(
-        child: 
-       ListView(
+              child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
                   DrawerHeader(
                     decoration:const BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.black,
                     ),
                     child: Center(
                         child: SizedBox(
@@ -46,32 +45,27 @@ class _RootState extends State<Root> {
                           'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Hulu_Logo.svg/2560px-Hulu_Logo.svg.png'),
                     )),
                   ),
-                 ListTile(
+                  ListTile(
                           title:
                               Text('favorite'),
-                          onTap: ()  {
+                          onTap: () async {
+                           
                           },
                         ),
-                         ListTile(
-                          title:
-                              Text('settings'),
-                          onTap: ()  {
-                          },
-                        ),
-                         ListTile(
-                          title:
-                              Text('Login'),
-                          onTap: ()  {
-                          },
-                        )
-                   
+                      
+                  ListTile(
+                    title: Text('settings'),
+                    onTap: () async {
+                    },
+                  ),
+                
                 ],
               ),
-      ),
+            ),
       bottomNavigationBar: 
                         BottomNavigationBar(
                          
-                          selectedItemColor:Colors.blue,
+                          selectedItemColor:Colors.green,
                            
                           unselectedItemColor:Colors.grey,
                           items:const <BottomNavigationBarItem>[

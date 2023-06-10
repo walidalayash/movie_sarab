@@ -7,7 +7,7 @@ class Movie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-body:Center(child: Text("movie"))
+body:Center(child: Text("وليد",style: TextStyle(fontFamily: "HS",fontSize: 20),))
     );
   }
 }
