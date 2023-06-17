@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:movie/ui/root.dart';
 import 'package:movie/ui/sign_up.dart';
 
-
 class Login extends StatelessWidget {
    Login({super.key});
   final userName= TextEditingController();

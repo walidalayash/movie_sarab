@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie/ui/profile.dart';
 
 import 'home.dart';
-import 'movie.dart';
+import 'movies_screen.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -14,7 +14,7 @@ class Root extends StatefulWidget {
 class _RootState extends State<Root> {
   final _views = [
   Home(),
-  Movie(),
+  MovieScreen(),
   //  Home(),
   // Home(),
   ];
